@@ -35,7 +35,7 @@ numbers.sort(function (a, b) {
 }); //miminum diffrence btwn two numbers likebubble sort
 console.log(numbers);
 
-const numbers = [1, 2, 3, 4];
+const numbers1 = [1, 2, 3, 4];
 numbers.forEach((num) => {
   console.log(num * 2);
 });
@@ -53,3 +53,19 @@ const arr = ["apple", "banana", "cherry"];
 for (const fruit of arr) {
   console.log(fruit);
 }
+
+//removing duplicates from an array
+let nums = [5, 3, 9, 1, 5, 3];
+let treeSetLike = [...new Set(nums)].sort((a, b) => a - b);
+console.log(treeSetLike);
+// [1, 3, 5, 9]
+
+// Step by step:
+
+// new Set(nums) → {5, 3, 9, 1} (unique values, insertion order).
+
+// ...new Set(nums) → expands into 5, 3, 9, 1.
+
+// [...new Set(nums)] → creates [5, 3, 9, 1].
+
+// .sort((a, b) => a - b) → sorts numerically → [1, 3, 5, 9].
