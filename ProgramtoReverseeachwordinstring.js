@@ -1,15 +1,9 @@
-function reverseEachWord(str) {
-  // Split the string into words
-  let words = str.split(" ");
-
-  // Reverse each word individually
-  let reversedWords = words.map((word) => {
-    return word.split("").reverse().join("");
-  });
-
-  // Join them back with spaces
-  return reversedWords.join(" ");
+function reverseEachWord(s) {
+  let result = s
+    .split(" ") // split into words
+    .map((a) => a.split("").reverse().join("")) // reverse each word
+    .join(" "); // join back with space
+  console.log(result);
 }
-
-// Test
-console.log(reverseEachWord("Hello World")); // Output: "olleH dlroW"
+reverseEachWord("Hello World How Are You");
+// "olleH dlroW woH erA uoY"
