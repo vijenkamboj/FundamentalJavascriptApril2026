@@ -1,0 +1,75 @@
+name: 🧪 Playwright Multi-Environment Tests
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: '🌍 Select Environment'
+        required: true
+        default: 'qa'
+        type: choice
+        options:
+          - qa
+          - stage
+          - prod
+
+      test_suite:
+        description: '🧪 Select Test Suite'
+        required: true
+        default: 'smoke'
+        type: choice
+        options:
+          - smoke
+          - regression
+          - all
+
+jobs:
+  run-tests:
+    name: Run ${{ inputs.test_suite }} on ${{ inputs.environment }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Run Tests
+        run: npx playwright test --project=${{ inputs.test_suite }}
+        env:
+          ENV:       ${{ inputs.environment }}
+          BASE_URL: ${{
+            inputs.environment == 'qa'    && secrets.QA_BASE_URL    ||
+            inputs.environment == 'stage' && secrets.STAGE_BASE_URL ||
+            secrets.PROD_BASE_URL }}
+          API_TOKEN: ${{
+            inputs.environment == 'qa'    && secrets.QA_API_TOKEN    ||
+            inputs.environment == 'stage' && secrets.STAGE_API_TOKEN ||
+            secrets.PROD_API_TOKEN }}
+
+      - name: Upload Test Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report-${{ inputs.environment }}
+          path: playwright-report/
+          retention-days: 7
+
+      - name: Upload Allure Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results-${{ inputs.environment }}
+          path: allure-results/
+          retention-days: 30
