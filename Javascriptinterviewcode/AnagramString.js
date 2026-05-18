@@ -23,13 +23,11 @@ anagramexample("hello", "bata"); // Strings are not anagram
 
 // Converts the string to lowercase, just like Java’s .toLowerCase().
 
-// .split("")
+// .split("")- Example: "silent" → ["s","i","l","e","n","t"]
 
 // Splits the string into an array of characters.
 
 // Equivalent to Java’s .toCharArray().
-
-// Example: "silent" → ["s","i","l","e","n","t"]
 
 // .sort()
 
@@ -46,3 +44,15 @@ anagramexample("hello", "bata"); // Strings are not anagram
 // If you want to check anagrams, you should split into characters, not words.
 // Use .split("") instead of .split(" ").
 //reduce() works directly with array but for strings you need Convert string to an  array first using .split("")
+
+// "Listen"                       "Silent"
+//     ↓  toLowerCase()               ↓
+// "listen"                       "silent"
+//     ↓  split("")                   ↓
+// ["l","i","s","t","e","n"]    ["s","i","l","e","n","t"]
+//     ↓  sort()                      ↓
+// ["e","i","l","n","s","t"]    ["e","i","l","n","s","t"]
+//     ↓  join("")                    ↓
+//   "eilnst"          ===          "eilnst"
+//                      ↓
+//               ✅ ANAGRAM

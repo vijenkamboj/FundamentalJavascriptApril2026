@@ -17,3 +17,9 @@ console.log(unique); // ["v","i","j","e","n","d","r"]
 // → .split("")  → ["v","i","j","e","n","d","e","r"]
 // → new Set()   → {"v","i","j","e","n","d","r"}  // duplicate "e" removed ✅
 // → [...]       → ["v","i","j","e","n","d","r"]
+
+function findsecondlargest(arr) {
+  let a = [...new Set(arr)].sort((a, b) => a - b);
+  console.log(a[4]);
+}
+findsecondlargest([5, 4, 6, 2, 1, 4, 8]);
