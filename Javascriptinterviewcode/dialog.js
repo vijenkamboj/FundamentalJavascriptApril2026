@@ -28,7 +28,8 @@ page.once("dialog", (dialog) => dialog.accept());
 await page.locator("#delete-btn").click();
 
 // Dialog Object Properties
-// When you register a handler with page.on("dialog", handler), Playwright passes a Dialog object. You can access:
+// When you register a handler with page.on("dialog", handler), Playwright passes a Dialog object.
+//  You can access:
 
 // dialog.type() → Returns the type (alert, confirm, prompt, beforeunload)
 
