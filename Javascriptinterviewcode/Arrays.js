@@ -60,6 +60,27 @@ let treeSetLike = [...new Set(nums)].sort((a, b) => a - b);
 console.log(treeSetLike);
 // [1, 3, 5, 9]
 
+let bikes = ["apple", "banana", "cherry"];
+console.log(bikes.join());
+console.log(bikes.join(""));
+console.log(bikes.join("-"));
+
+//last element of an array
+let items = [1, 2, 3, 4, 5];
+console.log(items.at(-1));
+
+let items = [1, 2, 3, 4, 5];
+console.log(items.at(-1)); // 5  → last
+console.log(items.at(-2)); // 4  → second last
+console.log(items.at(-3)); // 3  → third last
+
+/* index:  0   1   2   3   4
+   value:  1   2   3   4   5
+          -5  -4  -3  -2  -1  ← negative index */
+//max and min
+console.log(Math.max(...items));
+console.log(Math.min(...items));
+
 // Step by step:
 
 // new Set(nums) → {5, 3, 9, 1} (unique values, insertion order).

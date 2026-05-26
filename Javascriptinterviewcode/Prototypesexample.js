@@ -16,3 +16,6 @@ kumar.sayHello(); // Hello, my name is Kumar
 
 // Both vijender and kumar share the same prototype, so they share the same method without duplication.
 //protypes here are used for inheritancs
+
+//  map(), filter(), and reduce() are array methods
+// in JavaScript. They’re defined on the Array.prototype

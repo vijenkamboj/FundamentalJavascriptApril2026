@@ -69,3 +69,6 @@ console.log(treeSetLike);
 // [...new Set(nums)] → creates [5, 3, 9, 1].
 
 // .sort((a, b) => a - b) → sorts numerically → [1, 3, 5, 9].
+
+let bikes = ["apple", "banana", "cherry"];
+console.log(bikes.join());

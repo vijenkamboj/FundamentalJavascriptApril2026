@@ -1,10 +1,9 @@
 function sumalldigits(str) {
   let s1 = str.replace(/[^0-9]/g, "");
   console.log(s1);
-  //let num = parseInt(s1, 10);
   let sum = s1
     .split("")
-    .map((a) => parseInt(a))
+    .map((a) => parseInt(a)) //.map(Number)
     .reduce((a, b) => a + b, 0);
   console.log(sum);
 }
@@ -20,3 +19,21 @@ sumalldigits("u4yu7oi9hj6");
 // 4. .reduce((a, b) => a + b, 0) — fold the array into one number by adding.
 //  It starts with 0, then adds each element one at a time.
 // The table shows exactly how the accumulator grows each pass.
+
+/* "u4yu7oi9hj6"
+     ↓ replace(/[^0-9]/g, "")   — remove all non-digits
+"4796"
+     ↓ split("")
+["4", "7", "9", "6"]
+     ↓ map(parseInt)
+[4, 7, 9, 6]
+     ↓ reduce(a + b, 0)
+0+4 = 4
+4+7 = 11
+11+9 = 20
+20+6 = 26 */
+
+//     Key Differences
+// Method	                Behavior	                      Pitfall
+// .map(a => parseInt(a))	Safe                   if you explicitly pass only the element	If you accidentally use .map(parseInt), index becomes radix → wrong results
+// .map(Number)	          Clean,                    direct conversion	No pitfalls

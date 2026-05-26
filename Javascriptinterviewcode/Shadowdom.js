@@ -34,3 +34,4 @@ const buttonText = await page.evaluate(() => {
 
 // You can chain multiple >> if there are nested shadow roots:
 page.locator("outer-element >> inner-element >> span.label");
+//Piercing with >>> (deep combinator) — crosses shadow boundaries explicitly:

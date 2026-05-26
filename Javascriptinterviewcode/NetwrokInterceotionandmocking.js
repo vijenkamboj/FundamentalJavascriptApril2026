@@ -5,7 +5,8 @@ await page.route("**/api/users", async (route) => {
     contentType: "application/json",
     body: JSON.stringify([
       { id: 1, name: "John" },
-      { id: 2, name: "Jane" },
+      { id: 2, name: "Jane" }, //whenever we are sending data to in api
+      // we have to pass in as json string[{"id: "1", "name": "John","id: "2", "name": "Jane",}]
     ]),
   });
 });
@@ -63,3 +64,20 @@ await page.waitForResponse("**/api/users");
 
 // It's essentially a basic network traffic monitor —
 // useful for debugging what requests a page is making and whether they're succeeding.
+
+/* When you use page.route(), you’re telling Playwright:
+“Intercept any network request that matches this pattern, and let me decide what happens to it.”
+
+So routing here is essentially network request interception and handling.
+
+// page.route
+// This sets up a “route” (a rule) that catches requests going to /api/products.
+
+// Once intercepted, you can choose what to do with it:
+
+// route.fulfill() → Stop the request from reaching the real server 
+// and instead send back your own mocked response.
+
+// route.abort() → Block the request entirely.
+
+// route.continue() → Let the request go through, optionally modifying it first.*/

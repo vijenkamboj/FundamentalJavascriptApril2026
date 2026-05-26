@@ -23,3 +23,19 @@ function findsecondlargest(arr) {
   console.log(a[4]);
 }
 findsecondlargest([5, 4, 6, 2, 1, 4, 8]);
+//sort((a, b) => a - b) — sorts numbers in ascending order
+
+// string — convert to array, sort, join back
+let str = "dcba";
+let sorted = str.split("").sort().join("");
+console.log(sorted); // "abcd"
+
+//Reverse alphabetical (Z to A):
+let sorted = str.split("").sort().reverse().join("");
+console.log(sorted); // "dcba"
+
+//let str = "dcba";
+console.log(str.split("")); // ["d", "c", "b", "a"]
+
+//For string arrays, .sort() without a comparator sorts alphabetically (A to Z) by default.
+//Simple rule — for strings .sort() works fine, for numbers always use (a, b) => a - b.
