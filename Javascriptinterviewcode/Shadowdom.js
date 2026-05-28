@@ -2,12 +2,15 @@
 // standard locators. This allows tests to locate elements inside web components without
 // requiring special handling.
 // However, closed Shadow DOM cannot be accessed directly, because it is intentionally
-// encapsulated by the browser. In such cases, you would need to use JavaScript execution to interact with
+// encapsulated by the browser. In such cases, you would need to use JavaScript execution
+// to interact with
 //  elements inside the closed Shadow DOM, which is more complex and less reliable.
 // Playwright auto-pierces open shadow DOM
 //In Playwright, the >> operator inside a locator is specifically used to pierce into Shadow DOM boundaries.
 //Playwright’s locators are shadow‑aware — using >> tells Playwright to traverse
 //  into the shadow root and continue matching selectors inside
+//In Playwright, the >> operator inside a locator is officially
+//  called the shadow‑piercing descendant combinator.
 await page.locator("my-component >> input").fill("value");
 
 // Using CSS pierce selector

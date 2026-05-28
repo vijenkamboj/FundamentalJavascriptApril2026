@@ -17,6 +17,9 @@ await page.getByRole("textbox", { name: "Email" }).fill("test@test.com");
 // Combobox (dropdown)
 await page.getByRole("combobox", { name: "Country" }).selectOption("India");
 
+//radio button
+await page.getByRole("radio", { name: "one way" }).check();
+
 //2. Common ARIA Roles
 // Form elements
 page.getByRole("textbox"); // <input type="text">
@@ -129,3 +132,104 @@ page.getByRole("row").last(); // last table row
 //Playwright recommends ARIA locators first because they test accessibility
 //  and reflect real user behavior — if a screen reader can't find it,
 //  neither should your test.
+
+/*  🔎 Steps
+Open DevTools
+Right‑click the “one way” element on the page.
+Choose Inspect.
+Switch to the Accessibility Pane
+In DevTools, click the ⋮ menu → More tools → Accessibility.
+Or press 
+Ctrl+Shift+P (Windows) / Cmd+Shift+P (Mac),
+type “Accessibility”, and select “Show Accessibility Pane”.*/
+
+//for role as generic use getByText() if text is there
+
+/*  Reading the Accessibility Tab → Playwright
+The two key fields you need are Role and Name:
+Role: generic        →  first argument to getByRole()
+Name: "One Way"      →  the { name: } option
+For your specific example:
+jspage.getByRole('generic', { name: 'One Way' })
+
+How "Name" is resolved (your breakdown explained)
+Playwright follows the same priority order you see in DevTools:
+DevTools fieldHow Playwright sees itaria-labelledbyHighest priority — points to another element's textaria-labelDirect string label on the elementContentsFalls back to visible text contenttitleLast resort tooltip attribute
+Since in your case only Contents: "One Way" is set, Playwright finds the name from the text inside the element.
+
+Practical tip for generic role
+generic maps to plain <div> or <span> elements — Playwright supports it but it can match too broadly. A more precise locator would be:
+js// More specific — exact text match
+page.getByText('One Way', { exact: true })
+
+// Or combine with a parent/container
+page.locator('.some-container').getByRole('generic', { name: 'One Way' })
+
+Quick cheat sheet
+js// aria-label set to "One Way"
+page.getByRole('button', { name: 'One Way' })
+
+// aria-labelledby pointing to another element
+// Playwright resolves it automatically — same syntax
+
+// Text content only (your case)
+page.getByRole('generic', { name: 'One Way' })
+// or simply:
+page.getByText('One Way', { exact: true })
+The DevTools Accessibility tab is essentially showing you exactly what getByRole will use — Role + Name is all you need.*/
+//-------------------------------------------------
+/* <button>Submit</button>
+<input type="checkbox" /> Accept Terms
+<h1>Welcome</h1> */
+
+//usage
+// page.getByRole('button', { name: 'Submit' })
+// page.getByRole('checkbox', { name: 'Accept Terms' })
+// page.getByRole('heading', { name: 'Welcome' })
+
+//getByLabel — form fields linked to a label
+//Use when an <input> has a <label> or aria-label.
+
+// //<label for="email">Email</label>
+// <input id="email" type="text" />
+
+//page.getByLabel('Email')
+
+//-------------------------
+// getByPlaceholder — inputs with placeholder text
+// Use when there's no label, only a placeholder.
+
+//<input placeholder="Search here..." />
+
+//page.getByPlaceholder('Search here...')
+//-------------------------------------
+// getByText — any visible text on the page
+// Use for <div>, <span>, <p>, or non-interactive elements.
+
+/* <p>Your order is confirmed</p>
+<span>One Way</span> */
+
+// page.getByText('Your order is confirmed')
+// page.getByText('One Way', { exact: true })
+
+// //------------------------------
+// getByAltText — images
+// Use when targeting <img> by its alt attribute.
+
+//<img src="logo.png" alt="Company Logo" />
+
+//page.getByAltText('Company Logo')
+//-------------------------------------
+//getByTitle — tooltip/title attribute
+// Use when an element has a title attribute (often icons or abbreviations).
+
+//<button title="Close dialog">✕</button>
+/* <abbr title="World Health Organization">WHO</abbr> */
+
+// page.getByTitle('Close dialog')
+// page.getByTitle('World Health Organization')
+//--------------------------------------------------------
+// getByTestId — test-specific IDs
+// Use when the team adds data-testid attributes specifically for testing.
+//<div data-testid="user-card">John Doe</div>
+//page.getByTestId('user-card')

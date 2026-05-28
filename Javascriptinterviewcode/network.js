@@ -36,8 +36,8 @@ await page.route('**/api/users', route => {
 await page.goto('https://myapp.com');
 // App now receives fake API data ✅
 
-4. Modify Request (change headers, body, URL)
-jsawait page.route('**/api/data', route => {
+//4. Modify Request (change headers, body, URL)
+page.route('**/api/data', route => {
     route.continue({
         headers: {
             ...route.request().headers(),
@@ -49,8 +49,8 @@ jsawait page.route('**/api/data', route => {
     });
 });
 
-5. Modify Response
-jsawait page.route('**/api/products', async route => {
+//5. Modify Response
+ page.route('**/api/products', async route => {
     const response = await route.fetch();          // get real response
     const json = await response.json();
 
@@ -63,14 +63,15 @@ jsawait page.route('**/api/products', async route => {
     });
 });
 
-6. Simulate Network Errors
-jsawait page.route('**/api/payment', route => {
+//6. Simulate Network Errors
+ page.route('**/api/payment', route => {
     route.abort('failed');       // simulate network failure
 });
 
 // abort reasons: 'aborted' | 'failed' | 'timedout' | 'connectionrefused'
 
-7. page.on('request') & page.on('response') — Spy/Listen
+//7.
+ page.on('request') & page.on('response') — Spy/Listen
 js// Listen to all requests (no blocking)
 page.on('request', request => {
     console.log('➡️ Request:', request.method(), request.url());
@@ -83,8 +84,8 @@ page.on('response', response => {
 
 await page.goto('https://example.com');
 
-8. Wait for Specific Request/Response
-js// Wait for a specific API call to happen
+//8. Wait for Specific Request/Response
+// Wait for a specific API call to happen
 const [response] = await Promise.all([
     page.waitForResponse('**/api/login'),     // wait for this
     page.click('#login-btn')                  // trigger it
@@ -93,21 +94,26 @@ const [response] = await Promise.all([
 const data = await response.json();
 console.log(data);
 
-9. Remove a Route
-jsconst handler = route => route.continue();
+//9. Remove a Route
+const handler = route => route.continue();
 
 await page.route('**/*', handler);
 
 // Later — remove the intercept
 await page.unroute('**/*', handler);
 
-Quick Reference
-MethodPurposeroute.continue()Pass request through as-isroute.abort()Block the requestroute.fulfill()Return a fake/mock responseroute.fetch()Get real response, then modifypage.on('request')Spy on requests (no blocking)page.on('response')Spy on responsespage.waitForResponse()Wait for a specific API callpage.unroute()Remove an interceptor
+// Quick Reference
+// Method            Purpose   
+// route.continue()   Pass request through as-is
+// route.abort()      Block the request
+// route.fulfill()   Return a fake/mock response
+// route.fetch()     Get real response, then modify
 
-Common Use Cases
 
-✅ Mock APIs during testing (no real backend needed)
-✅ Block ads/images to speed up tests
-✅ Inject auth tokens into every request
-✅ Simulate errors (500, network failure)
-✅ Capture API calls for assertions
+// Common Use Cases
+
+// ✅ Mock APIs during testing (no real backend needed)
+// ✅ Block ads/images to speed up tests
+// ✅ Inject auth tokens into every request
+// ✅ Simulate errors (500, network failure)
+// ✅ Capture API calls for assertions

@@ -1,4 +1,5 @@
-//extract values from arrays or objects or functions into variables in a single line is destructuring
+//extract values from arrays or objects or functions into variables in a single line 
+// is destructuring
 // Destructuring allows unpacking values from arrays or properties from objects into distinct
 // variables. It's commonly used in Playwright to extract test context fixtures, configuration
 

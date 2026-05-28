@@ -34,8 +34,6 @@ counter(); // 3
 //          ↑
 //          closed over — garbage collector won't touch it
 //          as long as the inner functions exist
-
-// When asked “What is a closure?”, you can answer:
 // “A closure is a function that retains access to variables
 //  from its outer scope even after the outer function has
 //   executed. It’s commonly used for data privacy,

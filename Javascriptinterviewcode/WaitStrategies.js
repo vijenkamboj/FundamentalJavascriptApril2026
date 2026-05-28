@@ -37,3 +37,11 @@ await page.waitForEvent("popup");
 // Wait for timeout (use sparingly)
 await page.waitForTimeout(3000);
 /*     */
+
+//waitForSelector is used to wait for an element to appear in the DOM
+//  with states like attached, visible, or hidden. 
+// Playwright doesn’t support state: 'enabled' directly,
+//  because “enabled” is not a DOM state but an element property.
+//To handle that, I’d combine waitForSelector with an 
+// assertion like expect(locator).toBeEnabled().
+//  This way, I ensure the element is both present and interactable before clicking.

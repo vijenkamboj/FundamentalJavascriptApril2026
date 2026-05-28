@@ -20,7 +20,7 @@ console.log(arr); // [1, 4, 5] → original CHANGED ❌
 
 // splice can also insert
 arr.splice(1, 0, 10, 20); // insert 10, 20 at index 1
-console.log(arr); // [1, 10, 20, 4, 5]
+console.log(arr); // [1, 10, 20, 2, 3, 4, 5
 
 // arr.splice(start, deleteCount, item1, item2, ...)
 

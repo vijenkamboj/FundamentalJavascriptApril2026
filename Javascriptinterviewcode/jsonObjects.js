@@ -3,6 +3,8 @@ console.log(obj);
 
 let jsonStr = JSON.stringify(obj); //object → JSON  { name: "vijender" }->{"name":"vijender"}
 console.log(jsonStr); //Useful for sending data over APIs or saving to files.
+//JSON.stringify(obj) is the built‑in JavaScript method that
+// converts a JavaScript object into a JSON string.
 
 let parsed = JSON.parse(jsonStr); // JSON string → object {"name":"vijender"}->{ name: 'vijender' }
 console.log(parsed);
