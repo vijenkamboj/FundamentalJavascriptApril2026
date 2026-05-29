@@ -1,5 +1,5 @@
+//Finding the longest common substring across all strings in the array
 let input = ["Autozone", "Automotive", "Automatic"];
-
 let first = input[0]; // Step 1: Take the first string → "Autozone"
 let longest = ""; // Step 2: Start with an empty longest substring
 
@@ -10,9 +10,10 @@ for (let i = 0; i < first.length; i++) {
     // Step 5: Slice out a substring from i to j
     let sub = first.slice(i, j);
     // Example: when i=0, j=4 → sub = "Auto"
-
     // Step 6: Check if this substring exists in ALL other strings
+    //.every() — returns true only if ALL elements pass the test
     if (input.every((str) => str.includes(sub))) {
+      //.includes() — checks if a string contains another string
       // Step 7: If it does, and it's longer than what we found before, update longest
       if (sub.length > longest.length) {
         longest = sub;
@@ -38,3 +39,11 @@ i (start)	j (end)	slice(i, j)	length
 1	5	"utoz"	4
 1	6	"utozo"	5
 1	7	"utozon"	6*/
+//every is indeed an Array prototype method, just like map, filter, and reduce.
+// Comparison with other methods
+// Method	        Purpose	                      Return type
+// map	         Transform each element	           New array
+// filter	    Keep only matching elements      	New array
+// reduce	    Accumulate into single value	     Any type
+// every	      Check if all match condition	     Boolean
+// some	      Check if at least one matches	     Boolean

@@ -113,3 +113,23 @@ sort((a, b) => a.localeCompare(b)); // a compared to b
 // Reversed Z→A (descending)
 sort((a, b) => b.localeCompare(a)); // b compared to a  ← your code
 // ['cherry', 'banana', 'apple']
+
+const input = ["apple", "apricot", "application"];
+const sub = "ap";
+
+const result = input.every((str) => str.includes(sub));
+console.log(result); // true
+
+// Comparison with other methods
+// Method	        Purpose	                      Return type
+// map	         Transform each element	           New array
+// filter	    Keep only matching elements      	New array
+// reduce	    Accumulate into single value	     Any type
+// every	      Check if all match condition	     Boolean
+// some	      Check if at least one matches	     Boolean
+
+[1, 2, 3].includes(2); // true
+[1, 2, 3].includes(4); // false
+["a", "b", "c"].includes("b"); // true
+["a", "b", "c"].includes("B"); // false (case-sensitive)
+//Returns: true or false.
