@@ -1,4 +1,4 @@
-//extract values from arrays or objects or functions into variables in a single line 
+//extract values from arrays or objects or functions into variables in a single line
 // is destructuring
 // Destructuring allows unpacking values from arrays or properties from objects into distinct
 // variables. It's commonly used in Playwright to extract test context fixtures, configuration
@@ -37,7 +37,7 @@ console.log(name2, cityn);
 //Array Destructuring
 function printCoordinates([x, y]) {
   console.log(`X: ${x}, Y: ${y}`); // it’s called a backtick (`). It allows you to embed
-  //  expressions inside a string using ${expression} syntax.
+  //  expressions inside a string using ${expression} syntax.template literal
 }
 printCoordinates([10, 20]); // X: 10, Y: 20
 

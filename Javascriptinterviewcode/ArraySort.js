@@ -11,3 +11,11 @@ let sortarr1 = (arr) => {
   console.log(sortarr);
 };
 sortarr1([1, 5, 3, 6, 0, 3, 7]);
+
+// Normal A→Z (ascending)
+sort((a, b) => a.localeCompare(b)); // a compared to b
+// ['apple', 'banana', 'cherry']
+
+// Reversed Z→A (descending)
+sort((a, b) => b.localeCompare(a)); // b compared to a  ← your code
+// ['cherry', 'banana', 'apple']

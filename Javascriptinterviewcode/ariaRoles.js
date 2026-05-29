@@ -198,10 +198,15 @@ The DevTools Accessibility tab is essentially showing you exactly what getByRole
 //-------------------------
 // getByPlaceholder — inputs with placeholder text
 // Use when there's no label, only a placeholder.
-
 //<input placeholder="Search here..." />
-
 //page.getByPlaceholder('Search here...')
+/* <input type="text" placeholder="Enter your name" />
+<input type="email" placeholder="Enter your email" />
+<input type="password" placeholder="Enter your password" />
+<textarea placeholder="Write your message here"></textarea> */
+//// fill a text input
+//await page.getByPlaceholder('Enter your name').fill('John Doe')
+
 //-------------------------------------
 // getByText — any visible text on the page
 // Use for <div>, <span>, <p>, or non-interactive elements.

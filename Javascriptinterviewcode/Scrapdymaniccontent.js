@@ -18,7 +18,8 @@ const { chromium } = require("playwright");
       rating: card.querySelector(".rating")?.innerText,
     })),
   );
-
+///* optional chaining (?.) safely accesses deeply nested properties without throwing if an 
+//intermediate value is null or undefined
   console.log(products);
 
   await browser.close();

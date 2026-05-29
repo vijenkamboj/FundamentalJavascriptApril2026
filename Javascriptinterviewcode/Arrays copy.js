@@ -51,7 +51,7 @@ numbers1.forEach((num) => {
 // forEach() with index — gives both the element and its position
 const fruits = ["apple", "banana", "cherry"];
 fruits.forEach((fruit, index) => {
-  console.log(`${index}: ${fruit}`);
+  console.log(`${index}: ${fruit}`); //// Template Literal
 });
 // 0: apple
 // 1: banana
@@ -99,9 +99,17 @@ secondHighest([10, 5, 20, 8, 20]); // 10
 //In a string
 function secondHighest(arr) {
   const unique = [...new Set(arr)]; // remove duplicates
-  unique.sort((a, b) => b.localeCompare(a)); // sort descending (Z → A)
+  unique.sort((a, b) => b.localeCompare(a)); // sort descending (Z → A) localeCompare compares strings letter by letter
   return unique[1]; // second element
 }
 
 secondHighest(["banana", "apple", "mango", "apple"]); // "mango"
 secondHighest(["z", "a", "m", "b"]); // "m"
+
+// Normal A→Z (ascending)
+sort((a, b) => a.localeCompare(b)); // a compared to b
+// ['apple', 'banana', 'cherry']
+
+// Reversed Z→A (descending)
+sort((a, b) => b.localeCompare(a)); // b compared to a  ← your code
+// ['cherry', 'banana', 'apple']

@@ -49,6 +49,7 @@ export default defineConfig({
     screenshot: "only-on-failure",
     video: "retain-on-failure",
     trace: "on-first-retry",
+    launchOptions: { slowMo: 500 },
 
     // HTTP
     ignoreHTTPSErrors: true,
@@ -112,6 +113,17 @@ export default defineConfig({
       use: { ...devices["iPhone 13"] },
       dependencies: ["setup"],
     },
+    //     {
+    //     name: 'smoke',
+    //     testMatch: '**/ smoke;
+    // /*.spec.ts',
+    //     use: { ...devices['Desktop Chrome'] }
+    //   },
+    //   {
+    //     name: 'regression',
+    //     testMatch: '**/ regression /*.spec.ts',
+    //     use: { ...devices['Desktop Chrome'] }
+    //   },
   ],
 
   // ─── GLOBAL SETUP / TEARDOWN ──────────────────────────────────
