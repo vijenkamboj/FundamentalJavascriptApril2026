@@ -22,6 +22,9 @@ let s5 = s1.replace(/\D/g, "");
 let num = parseInt(s2, 10);
 console.log(num); // 123
 
+// Remove ALL whitespace (including middle)
+raw.replace(/\s+/g, ""); // 'Bearertoken123'
+
 //parseInt(string, radix) → converts a string into an integer using the specified base.
 
 // Common bases:
