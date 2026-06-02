@@ -29,6 +29,7 @@ await expect(locator).toHaveRole("button"); // ARIA role
 
 // Count
 await expect(locator).toHaveCount(5);
+await expect(locator).toBeGreaterThan(5);
 
 //2.Page Assertions (expect(page))
 // URL

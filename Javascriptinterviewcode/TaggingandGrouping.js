@@ -35,7 +35,7 @@ bashnpx playwright test tests/auth/
 npx playwright test tests/checkout/
 
 4. Tags — flexible grouping across files
-jstest('login @smoke', async ({ page }) => { ... })
+test('login @smoke', async ({ page }) => { ... })
 test('payment @smoke @regression', async ({ page }) => { ... })
 test('export report @regression', async ({ page }) => { ... })
 Run by tag:

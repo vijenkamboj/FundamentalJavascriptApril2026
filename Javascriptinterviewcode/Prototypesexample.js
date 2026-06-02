@@ -2,7 +2,7 @@ function Person(name) {
   this.name = name;
 }
 
-// Add method to prototype
+// Add method to prototype like Array.prototype map,reduce,filter methdos
 Person.prototype.sayHello = function () {
   console.log("Hello, my name is " + this.name);
 };

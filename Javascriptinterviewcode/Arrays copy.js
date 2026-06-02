@@ -99,7 +99,8 @@ secondHighest([10, 5, 20, 8, 20]); // 10
 //In a string
 function secondHighest(arr) {
   const unique = [...new Set(arr)]; // remove duplicates
-  unique.sort((a, b) => b.localeCompare(a)); // sort descending (Z → A) localeCompare compares strings letter by letter
+  unique.sort((a, b) => b.localeCompare(a)); // sort descending (Z → A) localeCompare
+  // compares strings letter by letter
   return unique[1]; // second element
 }
 
@@ -121,15 +122,33 @@ const result = input.every((str) => str.includes(sub));
 console.log(result); // true
 
 // Comparison with other methods
-// Method	        Purpose	                      Return type
-// map	         Transform each element	           New array
-// filter	    Keep only matching elements      	New array
-// reduce	    Accumulate into single value	     Any type
-// every	      Check if all match condition	     Boolean
-// some	      Check if at least one matches	     Boolean
+// Method	        Purpose	                              Return type
+// map	         Transform each element	                 New array
+// filter	    Keep only matching elements          	    New array
+// reduce	    Accumulate into single value	             Any type
+// every	      Check if all match condition	         Boolean
+// some	      Check if at least one matches	            Boolean
+//find        Check a condition and get the first match
 
 [1, 2, 3].includes(2); // true
 [1, 2, 3].includes(4); // false
 ["a", "b", "c"].includes("b"); // true
 ["a", "b", "c"].includes("B"); // false (case-sensitive)
 //Returns: true or false.
+
+function arrayfind(arr) {
+  let result = arr.find((element) => element > 10);
+  console.log(result);
+}
+arrayfind([1, 5, 15, 20]);
+
+//The console output will be 15.
+//The function call itself (arrayfind([1,5,15,20])) evaluates to undefined.
+//If you want the function to return the value
+function arrayfind(arr) {
+  let result = arr.find((element) => element > 10);
+  return result; // ✅ return instead of just logging
+}
+
+let output = arrayfind([1, 5, 15, 20]);
+console.log(output); // 15

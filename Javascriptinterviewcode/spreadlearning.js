@@ -6,7 +6,7 @@ const arr1 = [1, 2, 3];
 const arr2 = [4, 5];
 
 // Merge arrays
-const merged = [...arr1, ...arr2];
+const merged = [...arr1, ...arr2]; // [...new Set(arr)],Math.max(...items)
 console.log(merged); // [1, 2, 3, 4, 5]
 
 // Copy array

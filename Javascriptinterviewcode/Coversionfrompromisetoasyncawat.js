@@ -16,13 +16,10 @@ describe("this is a test structure", () => {
     try {
       // Make the API call
       const response = await apiContext.get(url);
-
       // Parse JSON
       const data = await response.json();
-
       // Push into array
       listOfIngredients.push(data);
-
       // Check if array has items
       if (listOfIngredients.length > 0) {
         console.log(listOfIngredients);

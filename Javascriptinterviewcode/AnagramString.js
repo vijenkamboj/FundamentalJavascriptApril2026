@@ -8,6 +8,9 @@ function anagramexample(s1, s2) {
 anagramexample("listeN", "silent"); // Strings are anagram
 anagramexample("hello", "bata"); // Strings are not anagram
 
+//An anagram is a word or phrase formed by rearranging the letters of
+//another word or phrase, using all the original letters exactly once.
+
 // Usage
 // isAnagram("silent", "Listen");   // Strings are anagram
 // isAnagram("hello", "world");     // Strings are not anagram
