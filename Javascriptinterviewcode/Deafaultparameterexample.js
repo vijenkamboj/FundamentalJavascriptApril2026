@@ -1,6 +1,6 @@
 // Function with default parameters
 function greet(name = "Guest", message = "Welcome!") {
-  console.log(`Hello ${name}, ${message}`);
+  console.log(`Hello ${name}, ${message}`); //Template literals
 }
 
 // Calling without arguments uses defaults

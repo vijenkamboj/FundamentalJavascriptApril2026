@@ -12,7 +12,7 @@
 
 // With Playwright (single API)
 // You write this once:
-// jstest('user can login', async ({ page }) => {
+// test('user can login', async ({ page }) => {
 //   await page.goto('https://example.com')
 //   await page.getByLabel('Email').fill('user@test.com')
 //   await page.getByRole('button', { name: 'Login' }).click()

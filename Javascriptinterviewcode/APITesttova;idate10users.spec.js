@@ -111,6 +111,21 @@ test('Profile page loads for logged-in user', async ({ page }) => {
 //various variations of test 
 // test.only,test.skip,test.fixme,test.use 
 
+import { test } from '@playwright/test';
+
+// Apply options to all tests in this file
+test.use({
+  viewport: { width: 1280, height: 720 },
+  locale: 'en-US',
+  colorScheme: 'dark'
+});
+
+test('homepage test', async ({ page }) => {
+  await page.goto('https://example.com');
+  // Runs with dark mode, 1280x720 viewport
+});
+
+
 // ✅ Summary
 
 // playwright.config.js → applies globally to all tests.

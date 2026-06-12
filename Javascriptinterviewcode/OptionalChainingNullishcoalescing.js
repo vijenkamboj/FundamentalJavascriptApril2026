@@ -8,13 +8,18 @@ console.log(retries || 3); // 3   (falls back, because 0 is falsy)
 
 const extractNumbers = (str) => str.match(/\d+(\.\d+)?/g)?.map(Number) ?? [];
 extractNumbers("timeout: 3000ms, retries: 3, threshold: 0.75");
+// \d+ → one or more digits.
+// (\.\d+)? → optional decimal part.
+// g flag → find all matches.
+// So it matches integers and decimals: "3000", "3", "0.75".
 // [3000, 3, 0.75]
-//?.map(Number)
-// Optional chaining (?.) says:
-// “If the result is not null, run .map(Number).
-// If it is null, just return undefined.”
-// Then ?? []
-// ensures you always get an array back (empty if no matches).
+
+// Optional chaining ?.map(Number)
+// If match returned an array → .map(Number) converts each string to a number.
+// If match returned null → ?. prevents an error, result is undefined.
+// Nullish coalescing ?? []
+// If the left side is null or undefined, return [].
+// Ensures the function always returns an array.
 
 //Optional Chaining (?.)
 const user = { profile: { name: "Vijender" } };

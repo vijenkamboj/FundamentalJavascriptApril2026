@@ -26,7 +26,7 @@ anagramexample("hello", "bata"); // Strings are not anagram
 
 // Converts the string to lowercase, just like Java’s .toLowerCase().
 
-// .split("")- Example: "silent" → ["s","i","l","e","n","t"]
+// .split("")- Example: "silent" → ["s","i","l","e","n","t"]-array of characters
 
 // Splits the string into an array of characters.
 

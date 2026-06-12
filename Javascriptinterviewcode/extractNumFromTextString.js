@@ -5,7 +5,7 @@
 // Use parseFloat() when you expect messy strings that may have trailing characters.
 
 const price = "$1,250.00";
-let s = parseFloat(price.replace(/[^0-9.]/g, "")); //. to remove dot as well
+let s = parseFloat(price.replace(/[^0-9.]/g, "")); //[^0-9.] → means “NOT a digit or a dot.”
 console.log(s);
 
 const price = "$1,250.00";

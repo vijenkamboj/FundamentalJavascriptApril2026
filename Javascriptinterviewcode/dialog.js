@@ -27,24 +27,20 @@ page.on("dialog", async (dialog) => {
 page.once("dialog", (dialog) => dialog.accept());
 await page.locator("#delete-btn").click();
 
-// Dialog Object Properties
-// When you register a handler with page.on("dialog", handler), Playwright passes a Dialog object.
-//  You can access:
-
-// dialog.type() → Returns the type (alert, confirm, prompt, beforeunload)
-
-// dialog.message() → Returns the text shown in the dialog
-
-// dialog.defaultValue() → Returns the default input value (only for prompt)
-
-// dialog.accept([promptText]) → Accepts the dialog (optionally sends text for prompt)
-
-// dialog.dismiss() → Cancels or closes the dialog (used for confirm or prompt)
-// Types of Dialogs
+// Types of Dialogs ACP->Alert,confirm,prompt
 // Playwright can intercept four types of browser dialogs:
-
 // Dialog Type	Trigger Example	Typical Use Case
 // alert	window.alert("Message")	Simple notification
 // confirm	window.confirm("Are you sure?")	Yes/No confirmation
 // prompt	window.prompt("Enter your name")	User input
 // beforeunload	Triggered when navigating away from a page	Prevent accidental navigation
+
+------------------------------------------------------------------
+// Dialog Object Properties
+// When you register a handler with page.on("dialog", handler), Playwright passes a Dialog object.
+//  You can access:
+// dialog.type() → Returns the type (alert, confirm, prompt, beforeunload)
+// dialog.message() → Returns the text shown in the dialog
+// dialog.defaultValue() → Returns the default input value (only for prompt)
+// dialog.accept([promptText]) → Accepts the dialog (optionally sends text for prompt)
+// dialog.dismiss() → Cancels or closes the dialog (used for confirm or prompt)

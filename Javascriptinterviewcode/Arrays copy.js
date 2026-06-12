@@ -152,3 +152,30 @@ function arrayfind(arr) {
 
 let output = arrayfind([1, 5, 15, 20]);
 console.log(output); // 15
+
+let arr = [1, 2, 3];
+
+// push → add at end
+arr.push(4);
+console.log(arr); // [1, 2, 3, 4]
+
+// pop → remove last
+arr.pop();
+console.log(arr); // [1, 2, 3]
+
+// unshift → add at start
+arr.unshift(0);
+console.log(arr); // [0, 1, 2, 3]
+
+// shift → remove first
+arr.shift();
+console.log(arr); // [1, 2, 3]
+
+// slice → extract portion
+let sliced = arr.slice(1, 3);
+console.log(sliced); // [2, 3]
+console.log(arr); // [1, 2, 3] (unchanged)
+
+// splice → remove/insert
+arr.splice(1, 1, 9, 10);
+console.log(arr); // [1, 9, 10, 3]

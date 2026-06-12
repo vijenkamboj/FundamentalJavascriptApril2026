@@ -6,7 +6,8 @@
 // to interact with
 //  elements inside the closed Shadow DOM, which is more complex and less reliable.
 // Playwright auto-pierces open shadow DOM
-//In Playwright, the >> operator inside a locator is specifically used to pierce into Shadow DOM boundaries.
+//In Playwright, the >> operator inside a locator is specifically used to pierce into Shadow DOM
+// boundaries.
 //Playwright’s locators are shadow‑aware — using >> tells Playwright to traverse
 //  into the shadow root and continue matching selectors inside
 //In Playwright, the >> operator inside a locator is officially
