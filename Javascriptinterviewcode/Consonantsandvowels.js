@@ -5,3 +5,4 @@ function english(s) {
 }
 console.log(english("vijender"));
 //i=case insentive and g is global
+//classic example of destructuring

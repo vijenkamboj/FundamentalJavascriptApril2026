@@ -20,6 +20,7 @@ secondUniqChrString("vijenderi"); // → 'i'
 
 function secondUniqChrString(str) {
   const unique = [...new Set(str)].sort((a, b) => a.localeCompare(b));
+  //This actually sorts in ascending order (A → Z),
   console.log(unique[1]);
 }
 secondUniqChrString("vijenderi"); // → 'j'
@@ -31,3 +32,4 @@ secondUniqChrString("vijenderi"); // → 'j'
 
 // Problem: .sort((a, b) => a - b) is a numeric sort — it doesn't work on characters. Subtracting characters gives NaN, so the order is unpredictable.
 // Also: You don't need to sort at all. The Set already preserves insertion order (first occurrence), so just pick index [1] directly.
+[1, 20, 3].sort((a, b) => a - b); // [1, 3, 20]

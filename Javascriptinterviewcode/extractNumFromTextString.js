@@ -14,7 +14,8 @@ console.log(s); // 1250
 
 const price = "₹1,25,000.50";
 // Remove everything except digits and decimal point
-let cleaned = price.replace(/[^0-9.]/g, "");
+let cleaned = price.replace(/[^0-9.]/g, ""); //"1250.00" Number() function
+//  parses "1250.00" as a numeric value.
 let value = Number(cleaned);
 
 console.log(value); // 125000.50

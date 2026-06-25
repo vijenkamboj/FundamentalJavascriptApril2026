@@ -1,6 +1,7 @@
 // playwright.config.js
 import { defineConfig, devices } from "@playwright/test";
 export default defineConfig({
+  //TPRTRO
   // ─── TEST DISCOVERY ───────────────────────────────────────────
   testDir: "./tests",
   testMatch: "**/*.spec.js",

@@ -26,6 +26,15 @@ test("homepage comparison", async ({ page }) => {
 //     └── button-chromium-win32.png
 //How Playwright Handles Baseline
 // First ever run — no baseline exists
+// Playwright will re‑run your tests.
+// Wherever a screenshot or snapshot comparison fails, it will replace the old baseline
+//  snapshot with the new one.
+// The updated files will be stored in your
+//  __snapshots__ or visual.spec.js-snapshots/ folder.
+//npx playwright test --update-snapshots
+//Playwright does not automatically update snapshots for you — you need
+// to explicitly run the command when
+// you want to refresh your baseline images.
 await expect(page).toHaveScreenshot("homepage.png");
 // Run 1 → No baseline found → Creates homepage.png → TEST PASSES
 // Run 2 → Baseline exists  → Takes new screenshot → Compares → PASS/FAIL
@@ -112,7 +121,7 @@ projects: [
 // Dynamic dates/text               mask: [locator]
 // Too sensitive                   Increase maxDiffPixels
 // Cross-browser                   Add projects in config
-// CI failures                      pload artifact for diff report
+// CI failures                      upload artifact for diff report
 
 //Comparing Baseline vs New Screenshot in Playwright
 // tests/visual.spec.js

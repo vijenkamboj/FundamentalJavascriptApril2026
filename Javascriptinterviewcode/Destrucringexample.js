@@ -6,7 +6,7 @@
 //array destructuring
 let arr = [1, 2, 3];
 let [a, b, c] = arr;
-console.log(a, b, c);
+console.log(a, b, c); // 1 2 3
 
 //object destructuring
 let obj = { name: "vijender", age: 25 };
@@ -58,4 +58,41 @@ console.log(english("vijender"));
 //i=case insentive and g is global
 
 // Object destructuring
-import { chromium, firefox, webkit } from "@playwright/test"; //is an ES module import statement
+import { chromium, firefox, webkit, test, expect } from "@playwright/test";
+//is an ES module import statement
+
+//2. Fixtures in Test Functions
+import { test, expect } from "@playwright/test";
+test("login test", async ({ page, context }) => {
+  await page.goto("https://example.com");
+  await page.fill("#username", "Vijender");
+  await page.fill("#password", "secret");
+  await page.click("#login");
+});
+
+//{ page, context } is destructuring the fixture object Playwright provides.
+
+//custom fixtures
+import { test as base } from "@playwright/test";
+
+const test = base.extend({
+  userData: async ({}, use) => {
+    const data = { name: "Vijender", role: "QA" };
+    await use(data);
+  },
+});
+test("use custom fixture", async ({ userData }) => {
+  console.log(userData.name); // Vijender
+});
+
+//{ userData } is destructured from the extended fixture set.
+
+//In ES6 Playwright projects, destructuring is used:
+
+// At import level (import { test, expect } ...)
+
+// In test fixtures (async ({ page }) => { ... })
+
+// In custom fixtures (async ({ userData }) => { ... })
+
+// In event handlers (({ url, status }) => { ... })

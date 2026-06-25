@@ -42,7 +42,8 @@ test.beforeAll(async () => {
 
   const responseBody = await response.json();
 
-  //   Parsing requires reading the stream and converting it to text, which is what .json() does internally.
+  //   Parsing requires reading the stream and converting it to text, which is what .json()
+  //  does internally.
   // .json() first reads the entire body from the stream.
   // Then it parses the text into a JavaScript object using JSON.parse() internally.
   token = responseBody.token; // ✅ extract token

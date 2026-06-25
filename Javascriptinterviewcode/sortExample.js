@@ -6,7 +6,8 @@
 // ["e","i","j","v"]
 
 function secondUniqChrString(str) {
-  const unique = [...new Set(str)].sort((a, b) => a.localeCompare(b)); //ZTOA
+  const unique = [...new Set(str)].sort((a, b) => a.localeCompare(b)); //alphabetically ["d", "e", "i", "j", "n", "r", "v"]
+
   console.log(unique[1]);
 }
 secondUniqChrString("vijenderi"); // → 'j'

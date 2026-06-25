@@ -4,7 +4,8 @@ function sumarr(arr) {
 }
 sumarr([1, 2, 3, 4, 5]);
 
-//reduce() works directly with array but for strings you need Convert string to an  array first using .split("")
+//reduce() works directly with array but for strings you need
+// Convert string to an  array first using .split("")
 
 // Simple way to remember:
 // .split() lives on strings
@@ -20,7 +21,7 @@ sumarr([1, 2, 3, 4, 5]);
 // → (1234).toString()        // "1234"
 // → .split("")               // ["1","2","3","4"]
 // → .reduce((a, b) => ...)  // ✅ now reduce works
-// Data   Methodneeded    Conversion needed
+// Data   Method needed    Conversion needed
 // number   .split()        number → string
 // string   .reduce()      string → array
 // array    .reduce()         none ✅

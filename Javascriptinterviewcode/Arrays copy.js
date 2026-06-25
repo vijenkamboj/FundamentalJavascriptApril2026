@@ -176,6 +176,6 @@ let sliced = arr.slice(1, 3);
 console.log(sliced); // [2, 3]
 console.log(arr); // [1, 2, 3] (unchanged)
 
-// splice → remove/insert
+// splice → remove/insert  let arr = [1, 2, 3];
 arr.splice(1, 1, 9, 10);
 console.log(arr); // [1, 9, 10, 3]

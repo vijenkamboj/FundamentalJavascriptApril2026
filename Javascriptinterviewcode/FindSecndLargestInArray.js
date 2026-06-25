@@ -37,5 +37,11 @@ console.log(sorted); // "dcba"
 //let str = "dcba";
 console.log(str.split("")); // ["d", "c", "b", "a"]
 
+let arr = [10, 20, 30];
+console.log(arr[arr.length - 1]); // 30
+
+let arr = [10, 20, 30];
+console.log(arr.at(-1)); // 30
+
 //For string arrays, .sort() without a comparator sorts alphabetically (A to Z) by default.
 //Simple rule — for strings .sort() works fine, for numbers always use (a, b) => a - b.

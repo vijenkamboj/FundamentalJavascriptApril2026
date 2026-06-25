@@ -9,6 +9,27 @@ function sumalldigits(str) {
 }
 sumalldigits("u4yu7oi9hj6");
 
+
+//using .map(number)
+function sumalldigits(str) {
+  // Remove all non-digit characters
+  let s1 = str.replace(/[^0-9]/g, "");
+  console.log("Digits only:", s1);
+
+  // Split into digits, convert to numbers, and sum
+  let sum = s1
+    .split("")
+    .map(Number)       // converts each string digit to a number
+    .reduce((a, b) => a + b, 0);
+
+  console.log("Sum of digits:", sum);
+}
+
+sumalldigits("u4yu7oi9hj6");
+// Digits only: 4796
+// Sum of digits: 26
+
+
 // 1. .replace(/[^0-9]/g, "") — strip everything that isn't a digit.
 //  The regex [^0-9] means "any character that is NOT 0–9".
 // The g flag makes it replace all matches, not just the first. "a1b2c3" → "123".

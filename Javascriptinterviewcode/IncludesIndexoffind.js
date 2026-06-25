@@ -12,3 +12,15 @@
 // .findIndex() → Arrays only, returns index based on condition.
 // .indexOf() → Works on both arrays and strings, returns index of exact match.
 // .includes() → Works on both arrays and strings, returns boolean (existence check).
+
+const arr = ["apple", "banana", "cherry"];
+console.log(arr.findIndex((fruit) => fruit.length > 6));
+// → 2   ("cherry" has length 6+, found at index 2)
+
+const arr = ["apple", "banana", "cherry"];
+console.log(arr.includes("banana")); // true
+console.log(arr.includes("grape")); // false
+
+const arr = ["apple", "banana", "cherry"];
+console.log(arr.find((fruit) => fruit.length > 6));
+// → "banana" (length 6+, first match)
