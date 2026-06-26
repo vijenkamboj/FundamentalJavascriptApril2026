@@ -28,14 +28,10 @@
 // Ads, popups, or cookie banners interfering with test flow.
 
 // ✅ How to Reduce Flakiness
+
 // Use Playwright’s built-in auto-waiting (page.locator().click() waits for element to be ready).
-
 // Prefer stable selectors (data-test-id, role-based locators).
-
 // Apply retry logic for flaky steps (e.g., re-checking API responses).
-
 // Run tests in isolated environments with fresh test data.
-
 // Avoid hard-coded wait(); use await expect(locator).toBeVisible() instead.
-
 // Use fixtures to set up and tear down clean states.
